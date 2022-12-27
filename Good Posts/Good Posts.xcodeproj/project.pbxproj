@@ -13,6 +13,8 @@
 		9332E3832956538E00DDA7F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9332E3812956538E00DDA7F9 /* LaunchScreen.storyboard */; };
 		9332E38B295658AB00DDA7F9 /* PostsFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332E38A295658AB00DDA7F9 /* PostsFeedVC.swift */; };
 		9332E38D295658F100DDA7F9 /* FavoritePostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332E38C295658F100DDA7F9 /* FavoritePostsVC.swift */; };
+		9332E38F295AACAD00DDA7F9 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332E38E295AACAD00DDA7F9 /* PostsCell.swift */; };
+		9332E391295AB14C00DDA7F9 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332E390295AB14C00DDA7F9 /* Posts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9332E3842956538E00DDA7F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9332E38A295658AB00DDA7F9 /* PostsFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFeedVC.swift; sourceTree = "<group>"; };
 		9332E38C295658F100DDA7F9 /* FavoritePostsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePostsVC.swift; sourceTree = "<group>"; };
+		9332E38E295AACAD00DDA7F9 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
+		9332E390295AB14C00DDA7F9 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				9332E3842956538E00DDA7F9 /* Info.plist */,
 				9332E38A295658AB00DDA7F9 /* PostsFeedVC.swift */,
 				9332E38C295658F100DDA7F9 /* FavoritePostsVC.swift */,
+				9332E38E295AACAD00DDA7F9 /* PostsCell.swift */,
+				9332E390295AB14C00DDA7F9 /* Posts.swift */,
 			);
 			path = "Good Posts";
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9332E3772956538D00DDA7F9 /* AppDelegate.swift in Sources */,
+				9332E391295AB14C00DDA7F9 /* Posts.swift in Sources */,
+				9332E38F295AACAD00DDA7F9 /* PostsCell.swift in Sources */,
 				9332E38B295658AB00DDA7F9 /* PostsFeedVC.swift in Sources */,
 				9332E38D295658F100DDA7F9 /* FavoritePostsVC.swift in Sources */,
 				9332E3792956538D00DDA7F9 /* SceneDelegate.swift in Sources */,
