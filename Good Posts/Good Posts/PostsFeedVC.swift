@@ -9,6 +9,13 @@ import UIKit
 
 class PostsFeedVC: UIViewController {
     
+    // a string set as a variable for cell identifier.
+    struct Cells {
+        static let postsCell = "PostsCell"
+    }
+    
+    let postsTableView = UITableView()
+    //dummy data for posts.
     var posts: [Posts] = [Posts(postTitle: "asdf asdf asdf asdf", postBody: "asdf asdf asdf", postAuthor: "Sana"),
                           Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Momo"),
                           Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "G-Dragon"),
@@ -18,28 +25,18 @@ class PostsFeedVC: UIViewController {
                           Posts(postTitle: "asdf asdf asdf asdf", postBody: "asdf asdf asdf", postAuthor: "Rosé"),
                           Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Sakura"),
                           Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Chae Won")]
-    
-    struct Cells {
-        static let postsCell = "PostsCell"
-    }
-    
-    let postsTableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
     }
     
-    
-    
+    // setting delegates, size of cell, registering cells and adding constraints.
     func setupTableView() {
         view.addSubview(postsTableView)
         
-        //set delegates
         setPostsTableViewDelegates()
-        //set row height
         postsTableView.rowHeight = 150
-        //register cells
         postsTableView.register(PostsCell.self, forCellReuseIdentifier: Cells.postsCell)
         //set constraints
         
@@ -61,6 +58,7 @@ class PostsFeedVC: UIViewController {
 
 }
 
+// extension to conform to protocols. keeps this bit separated from the rest of the VC.
 extension PostsFeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -72,6 +70,17 @@ extension PostsFeedVC: UITableViewDelegate, UITableViewDataSource {
         cell.set(post: post)
         
         return cell
+    }
+    
+    //for navigation, sends us to the PostVC when tapping a post.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        let destVC = PostVC()
+        destVC.postTitle = post.postTitle
+        destVC.postAuthor = post.postAuthor
+        destVC.postTitle = post.postTitle
+        
+        navigationController?.pushViewController(destVC, animated: true)
     }
     
     

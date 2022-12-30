@@ -15,6 +15,7 @@
 		9332E38D295658F100DDA7F9 /* FavoritePostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332E38C295658F100DDA7F9 /* FavoritePostsVC.swift */; };
 		9332E38F295AACAD00DDA7F9 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332E38E295AACAD00DDA7F9 /* PostsCell.swift */; };
 		9332E391295AB14C00DDA7F9 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332E390295AB14C00DDA7F9 /* Posts.swift */; };
+		936E553C295BF57200EE166E /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E553B295BF57200EE166E /* PostVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9332E38C295658F100DDA7F9 /* FavoritePostsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePostsVC.swift; sourceTree = "<group>"; };
 		9332E38E295AACAD00DDA7F9 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		9332E390295AB14C00DDA7F9 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		936E553B295BF57200EE166E /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				9332E38C295658F100DDA7F9 /* FavoritePostsVC.swift */,
 				9332E38E295AACAD00DDA7F9 /* PostsCell.swift */,
 				9332E390295AB14C00DDA7F9 /* Posts.swift */,
+				936E553B295BF57200EE166E /* PostVC.swift */,
 			);
 			path = "Good Posts";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				9332E3772956538D00DDA7F9 /* AppDelegate.swift in Sources */,
 				9332E391295AB14C00DDA7F9 /* Posts.swift in Sources */,
+				936E553C295BF57200EE166E /* PostVC.swift in Sources */,
 				9332E38F295AACAD00DDA7F9 /* PostsCell.swift in Sources */,
 				9332E38B295658AB00DDA7F9 /* PostsFeedVC.swift in Sources */,
 				9332E38D295658F100DDA7F9 /* FavoritePostsVC.swift in Sources */,
