@@ -26,9 +26,9 @@ class PostsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(post: Posts) {
-        postTitle.text = post.postTitle
-        postAuthor.text = post.postAuthor
+    func set(post: Post) {
+        postTitle.text = post.title
+        postAuthor.text = String(post.userId)
     }
     
     func configPostTitle() {

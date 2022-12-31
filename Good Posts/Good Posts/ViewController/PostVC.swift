@@ -8,9 +8,10 @@
 import UIKit
 
 class PostVC: UIViewController {
-    var postAuthor: String = ""
+    var postAuthor: Int = 0
     var postTitle: String = ""
     var postBody: String = ""
+    var posts: [Post] = []
     
     let postTitleLabel = UILabel()
     let postAuthorLabel = UILabel()
@@ -18,32 +19,31 @@ class PostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(postTitleLabel)
-        view.addSubview(postBodyTextView)
-        view.addSubview(postAuthorLabel)
         configPostTitle()
         configPostAuthor()
         configPostBody()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemBackground
         
         // Do any additional setup after loading the view.
     }
     
     
     func configPostTitle() {
+        view.addSubview(postTitleLabel)
         postTitleLabel.text = postTitle
         postTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
     }
     
     func configPostAuthor() {
-        
+        view.addSubview(postAuthorLabel)
     }
     
     func configPostBody() {
+        view.addSubview(postBodyTextView)
+        postBodyTextView.text = postBody
         
     }
-
 
 
 }

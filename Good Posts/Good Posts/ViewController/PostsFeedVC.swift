@@ -14,20 +14,14 @@ class PostsFeedVC: UIViewController {
         static let postsCell = "PostsCell"
     }
     
+    
     let postsTableView = UITableView()
     //dummy data for posts.
-    var posts: [Posts] = [Posts(postTitle: "asdf asdf asdf asdf", postBody: "asdf asdf asdf", postAuthor: "Sana"),
-                          Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Momo"),
-                          Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "G-Dragon"),
-                          Posts(postTitle: "asdf asdf asdf asdf", postBody: "asdf asdf asdf", postAuthor: "T.O.P."),
-                          Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Jisoo"),
-                          Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Lalisa"),
-                          Posts(postTitle: "asdf asdf asdf asdf", postBody: "asdf asdf asdf", postAuthor: "Rosé"),
-                          Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Sakura"),
-                          Posts(postTitle: "asdf", postBody: "asdf asdf asdf", postAuthor: "Chae Won")]
+    var posts: [Post] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAllPosts()
         setupTableView()
     }
     
@@ -49,7 +43,21 @@ class PostsFeedVC: UIViewController {
         
         
     }
-
+    
+    func getAllPosts() {
+        PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
+            guard let postsDict = postsDict else {
+                print("error")
+                return
+            }
+            self.posts.append(contentsOf: postsDict.posts)
+            
+            DispatchQueue.main.async{
+              self.postsTableView.reloadData()
+            }
+        }
+        
+    }
     
     func setPostsTableViewDelegates() {
         postsTableView.delegate = self
@@ -63,25 +71,26 @@ extension PostsFeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = postsTableView.dequeueReusableCell(withIdentifier: Cells.postsCell) as! PostsCell
         let post = posts[indexPath.row]
         cell.set(post: post)
-        
+
         return cell
     }
-    
+
     //for navigation, sends us to the PostVC when tapping a post.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = posts[indexPath.row]
         let destVC = PostVC()
-        destVC.postTitle = post.postTitle
-        destVC.postAuthor = post.postAuthor
-        destVC.postTitle = post.postTitle
-        
+        destVC.postTitle = post.title
+        destVC.postAuthor = post.userId
+        destVC.postBody = post.body
+        destVC.posts = posts
+
         navigationController?.pushViewController(destVC, animated: true)
     }
-    
-    
+
+
 }
