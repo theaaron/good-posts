@@ -15,6 +15,7 @@ class FavoritesCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLabel()
+        backgroundColor = .systemGray3
     }
     
     required init?(coder: NSCoder) {
@@ -27,12 +28,14 @@ class FavoritesCell: UICollectionViewCell {
     
     private func setupLabel() {
         addSubview(postTitleLabel)
-        postTitleLabel.backgroundColor = .systemPink
+        postTitleLabel.numberOfLines = 0
+        postTitleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         postTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        postTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        postTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        postTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        postTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        postTitleLabel.textAlignment = .center
+        postTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = true
+        postTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5).isActive = true
+        postTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
+        postTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
         layer.cornerRadius = 10
     }
     
