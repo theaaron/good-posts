@@ -15,3 +15,8 @@ struct Post: Codable, Hashable {
     let tags: [String]
     let reactions: Int
 }
+
+struct FavoritePost {
+    let post: Post
+    var isFavorite = false
+}

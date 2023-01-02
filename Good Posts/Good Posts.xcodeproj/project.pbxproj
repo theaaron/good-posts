@@ -18,6 +18,7 @@
 		936E553C295BF57200EE166E /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E553B295BF57200EE166E /* PostVC.swift */; };
 		936E553E295EAEE700EE166E /* PostsNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E553D295EAEE700EE166E /* PostsNetworkingManager.swift */; };
 		936E5540295F5FC800EE166E /* PostsDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E553F295F5FC800EE166E /* PostsDict.swift */; };
+		936E55462962989A00EE166E /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E55452962989A00EE166E /* FavoritesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		936E553B295BF57200EE166E /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		936E553D295EAEE700EE166E /* PostsNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsNetworkingManager.swift; sourceTree = "<group>"; };
 		936E553F295F5FC800EE166E /* PostsDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDict.swift; sourceTree = "<group>"; };
+		936E55452962989A00EE166E /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		9332E3752956538D00DDA7F9 /* Good Posts */ = {
 			isa = PBXGroup;
 			children = (
+				936E55442962986C00EE166E /* Cells */,
 				936E5543295FF41600EE166E /* Model */,
 				936E5541295FF3C800EE166E /* ViewController */,
 				9332E3762956538D00DDA7F9 /* AppDelegate.swift */,
@@ -73,7 +76,6 @@
 				9332E37F2956538E00DDA7F9 /* Assets.xcassets */,
 				9332E3812956538E00DDA7F9 /* LaunchScreen.storyboard */,
 				9332E3842956538E00DDA7F9 /* Info.plist */,
-				9332E38E295AACAD00DDA7F9 /* PostsCell.swift */,
 				936E553D295EAEE700EE166E /* PostsNetworkingManager.swift */,
 			);
 			path = "Good Posts";
@@ -96,6 +98,15 @@
 				9332E390295AB14C00DDA7F9 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		936E55442962986C00EE166E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9332E38E295AACAD00DDA7F9 /* PostsCell.swift */,
+				936E55452962989A00EE166E /* FavoritesCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 				9332E3772956538D00DDA7F9 /* AppDelegate.swift in Sources */,
 				9332E391295AB14C00DDA7F9 /* Post.swift in Sources */,
 				936E553C295BF57200EE166E /* PostVC.swift in Sources */,
+				936E55462962989A00EE166E /* FavoritesCell.swift in Sources */,
 				936E553E295EAEE700EE166E /* PostsNetworkingManager.swift in Sources */,
 				936E5540295F5FC800EE166E /* PostsDict.swift in Sources */,
 				9332E38F295AACAD00DDA7F9 /* PostsCell.swift in Sources */,
