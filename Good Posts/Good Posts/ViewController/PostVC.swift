@@ -12,7 +12,7 @@ class PostVC: UIViewController {
     var postTitle: String = ""
     var postBody: String = ""
     var posts: [Post] = []
-    let favButton = UIButton()
+    let favButton = FavoriteButton()
     
     let postTitleLabel = UILabel()
     let postAuthorLabel = UILabel()
@@ -61,8 +61,6 @@ class PostVC: UIViewController {
     
     func configFavsButton() {
         view.addSubview(favButton)
-        
-        favButton.setImage(UIImage(systemName: "heart"), for: .normal)
         favButton.translatesAutoresizingMaskIntoConstraints = false
         favButton.topAnchor.constraint(equalTo: postBodyLabel.bottomAnchor, constant: 20).isActive = true
         favButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
