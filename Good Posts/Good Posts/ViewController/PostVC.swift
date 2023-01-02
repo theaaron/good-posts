@@ -15,14 +15,14 @@ class PostVC: UIViewController {
     
     let postTitleLabel = UILabel()
     let postAuthorLabel = UILabel()
-    let postBodyTextView = UITextView()
+    let postBodyLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configPostTitle()
         configPostAuthor()
         configPostBody()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
         
         // Do any additional setup after loading the view.
     }
@@ -31,7 +31,16 @@ class PostVC: UIViewController {
     func configPostTitle() {
         view.addSubview(postTitleLabel)
         postTitleLabel.text = postTitle
+        postTitleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        postTitleLabel.numberOfLines = 0
+        postTitleLabel.adjustsFontSizeToFitWidth = true
+        
         postTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        postTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        postTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15.0).isActive = true
+        postTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15.0).isActive = true
+        
+        
         
     }
     
@@ -40,8 +49,16 @@ class PostVC: UIViewController {
     }
     
     func configPostBody() {
-        view.addSubview(postBodyTextView)
-        postBodyTextView.text = postBody
+        view.addSubview(postBodyLabel)
+        postBodyLabel.text = postBody
+        postBodyLabel.translatesAutoresizingMaskIntoConstraints = false
+        postBodyLabel.numberOfLines = 0
+        postBodyLabel.topAnchor.constraint(equalTo: postTitleLabel.bottomAnchor, constant: 30.0).isActive = true
+        postBodyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15.0).isActive = true
+        postBodyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15.0).isActive = true
+        
+        
+        
         
     }
 

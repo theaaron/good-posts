@@ -41,10 +41,8 @@ struct PostsNetworkingManager {
 
 
             do {
-                print("decoding json")
                 let decoder = JSONDecoder()
                 let postsDict: PostsDict = try decoder.decode(PostsDict.self, from: data)
-                print("yes")
                 completed(postsDict, nil)
             } catch {
                 completed(nil, "it didn't work")
