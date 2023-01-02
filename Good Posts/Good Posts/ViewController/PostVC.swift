@@ -12,6 +12,7 @@ class PostVC: UIViewController {
     var postTitle: String = ""
     var postBody: String = ""
     var posts: [Post] = []
+    let favButton = UIButton()
     
     let postTitleLabel = UILabel()
     let postAuthorLabel = UILabel()
@@ -22,6 +23,7 @@ class PostVC: UIViewController {
         configPostTitle()
         configPostAuthor()
         configPostBody()
+        configFavsButton()
         view.backgroundColor = .systemGray6
         
         // Do any additional setup after loading the view.
@@ -36,12 +38,9 @@ class PostVC: UIViewController {
         postTitleLabel.adjustsFontSizeToFitWidth = true
         
         postTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        postTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        postTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         postTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15.0).isActive = true
         postTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15.0).isActive = true
-        
-        
-        
     }
     
     func configPostAuthor() {
@@ -58,8 +57,19 @@ class PostVC: UIViewController {
         postBodyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15.0).isActive = true
         
         
+    }
+    
+    func configFavsButton() {
+        view.addSubview(favButton)
         
-        
+        favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        favButton.translatesAutoresizingMaskIntoConstraints = false
+        favButton.topAnchor.constraint(equalTo: postBodyLabel.bottomAnchor, constant: 20).isActive = true
+        favButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+    }
+    
+    @objc func favsButtonClicked() {
+        favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
 
 

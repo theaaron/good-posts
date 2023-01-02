@@ -75,4 +75,12 @@ extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource 
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let post = favPosts[indexPath.row]
+        let destVC = PostVC()
+        destVC.postTitle = post.title
+        destVC.postBody = post.body
+        navigationController?.present(destVC, animated: true)
+        
+    }
 }
