@@ -9,13 +9,13 @@ import UIKit
 
 class FavoriteButton: UIButton {
     
-    let heartSymbol = UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large))
+    let unfilledHeartSymbol = UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large))
     
     let filledHeartSymbol = UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large))
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configButton()
+        unfillHeart()
     }
     
     required init?(coder: NSCoder) {
@@ -27,8 +27,8 @@ class FavoriteButton: UIButton {
     }
 
     
-    func configButton() {
-        setImage(heartSymbol, for: .normal)
+    func unfillHeart() {
+        setImage(unfilledHeartSymbol, for: .normal)
     }
     
     

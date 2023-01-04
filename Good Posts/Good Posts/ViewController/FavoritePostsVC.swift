@@ -9,16 +9,20 @@ import UIKit
 
 class FavoritePostsVC: UIViewController {
 
-    
-    var favPosts: [Post] = [Post(id: 3, title: "Yeerah yeah yeah yeasdah yeadfh yeah yeah yeah yeah yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5), Post(id: 3, title: "Yeah", body: "yeah yeah yeah", userId: 9, tags: [], reactions: 5)
-    ]
-    
+    var allPosts: [Post] = []
+    var favPosts: [Post] = []
     
     var favsCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getFavPosts()
         setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.favsCollectionView.reloadData()
     }
     
     
@@ -52,7 +56,22 @@ class FavoritePostsVC: UIViewController {
     }
     
     
-    
+    func getFavPosts() {
+        PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
+            guard let postsDict = postsDict else {
+                print("error")
+                return
+            }
+            self.allPosts.append(contentsOf: postsDict.posts)
+            
+            self.favPosts = self.allPosts.filter({Helpers.favorites.contains($0.id)})
+            
+            DispatchQueue.main.async{
+              self.favsCollectionView.reloadData()
+            }
+        }
+        
+    }
     
     
     
@@ -78,6 +97,7 @@ extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let post = favPosts[indexPath.row]
         let destVC = PostVC()
+        destVC.postId = post.id
         destVC.postTitle = post.title
         destVC.postBody = post.body
         navigationController?.present(destVC, animated: true)

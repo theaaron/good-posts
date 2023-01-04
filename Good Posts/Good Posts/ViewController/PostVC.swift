@@ -13,10 +13,14 @@ class PostVC: UIViewController {
     var postBody: String = ""
     var posts: [Post] = []
     let favButton = FavoriteButton()
+    var postId: Int = 0
     
     let postTitleLabel = UILabel()
     let postAuthorLabel = UILabel()
     let postBodyLabel = UILabel()
+    
+    var favsArray: [Int] = []
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,7 @@ class PostVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
     
     
     func configPostTitle() {
@@ -61,13 +66,29 @@ class PostVC: UIViewController {
     
     func configFavsButton() {
         view.addSubview(favButton)
+        if Helpers.favorites.contains(postId) {
+            favButton.fillHeart()
+            print("fav'd")
+        }
+        favButton.addTarget(self, action: #selector(favButtonClicked), for: .touchUpInside)
         favButton.translatesAutoresizingMaskIntoConstraints = false
         favButton.topAnchor.constraint(equalTo: postBodyLabel.bottomAnchor, constant: 20).isActive = true
         favButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
     }
     
-    @objc func favsButtonClicked() {
-        favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    @objc func favButtonClicked() {
+        
+        if favButton.currentImage == favButton.unfilledHeartSymbol {
+            favButton.fillHeart()
+            Helpers.favorites.append(postId)
+            print(Helpers.favorites)
+            
+        } else {
+            favButton.unfillHeart()
+            let index = Helpers.favorites.firstIndex(of: postId)
+            Helpers.favorites.remove(at: index!)
+            print(Helpers.favorites)
+        }
     }
 
 

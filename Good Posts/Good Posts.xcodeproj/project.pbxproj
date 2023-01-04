@@ -20,6 +20,7 @@
 		936E5540295F5FC800EE166E /* PostsDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E553F295F5FC800EE166E /* PostsDict.swift */; };
 		936E55462962989A00EE166E /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E55452962989A00EE166E /* FavoritesCell.swift */; };
 		936E554829637C8800EE166E /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E554729637C8800EE166E /* FavoriteButton.swift */; };
+		936E554C296549B000EE166E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E554B296549B000EE166E /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		936E553F295F5FC800EE166E /* PostsDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDict.swift; sourceTree = "<group>"; };
 		936E55452962989A00EE166E /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		936E554729637C8800EE166E /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		936E554B296549B000EE166E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		9332E36A2956538D00DDA7F9 = {
 			isa = PBXGroup;
 			children = (
+				936E554B296549B000EE166E /* Helpers.swift */,
 				9332E3752956538D00DDA7F9 /* Good Posts */,
 				9332E3742956538D00DDA7F9 /* Products */,
 			);
@@ -189,6 +192,7 @@
 				936E553E295EAEE700EE166E /* PostsNetworkingManager.swift in Sources */,
 				936E5540295F5FC800EE166E /* PostsDict.swift in Sources */,
 				9332E38F295AACAD00DDA7F9 /* PostsCell.swift in Sources */,
+				936E554C296549B000EE166E /* Helpers.swift in Sources */,
 				9332E38B295658AB00DDA7F9 /* PostsFeedVC.swift in Sources */,
 				9332E38D295658F100DDA7F9 /* FavoritePostsVC.swift in Sources */,
 				936E554829637C8800EE166E /* FavoriteButton.swift in Sources */,

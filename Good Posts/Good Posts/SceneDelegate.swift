@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createTabBar() -> UITabBarController {
         let tabBar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemPink
+        UITabBar.appearance().tintColor = .systemBlue
         UITabBar.appearance().backgroundColor = .opaqueSeparator
         tabBar.viewControllers = [createPostsFeedNC(), createFavsFeedNC()]
         
