@@ -56,7 +56,6 @@
 		9332E36A2956538D00DDA7F9 = {
 			isa = PBXGroup;
 			children = (
-				936E554B296549B000EE166E /* Helpers.swift */,
 				9332E3752956538D00DDA7F9 /* Good Posts */,
 				9332E3742956538D00DDA7F9 /* Products */,
 			);
@@ -77,6 +76,7 @@
 				936E5543295FF41600EE166E /* Model */,
 				936E5541295FF3C800EE166E /* ViewController */,
 				9332E3762956538D00DDA7F9 /* AppDelegate.swift */,
+				936E554B296549B000EE166E /* Helpers.swift */,
 				9332E3782956538D00DDA7F9 /* SceneDelegate.swift */,
 				9332E37F2956538E00DDA7F9 /* Assets.xcassets */,
 				9332E3812956538E00DDA7F9 /* LaunchScreen.storyboard */,

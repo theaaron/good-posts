@@ -33,7 +33,11 @@ class PostVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view will appear")
+        configFavsOnReappear()
+    }
     
     func configPostTitle() {
         view.addSubview(postTitleLabel)
@@ -74,6 +78,14 @@ class PostVC: UIViewController {
         favButton.translatesAutoresizingMaskIntoConstraints = false
         favButton.topAnchor.constraint(equalTo: postBodyLabel.bottomAnchor, constant: 20).isActive = true
         favButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+    }
+    
+    func configFavsOnReappear() {
+        if Helpers.favorites.contains(postId) {
+            favButton.fillHeart()
+        } else {
+            favButton.unfillHeart()
+        }
     }
     
     @objc func favButtonClicked() {

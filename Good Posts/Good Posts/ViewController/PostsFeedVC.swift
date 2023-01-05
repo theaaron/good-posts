@@ -34,7 +34,7 @@ class PostsFeedVC: UIViewController {
         view.addSubview(postsTableView)
         
         setPostsTableViewDelegates()
-        postsTableView.rowHeight = 150
+        postsTableView.rowHeight = 130
         postsTableView.register(PostsCell.self, forCellReuseIdentifier: Cells.postsCell)
         //set constraints
         

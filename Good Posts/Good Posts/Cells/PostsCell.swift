@@ -28,7 +28,7 @@ class PostsCell: UITableViewCell {
     
     func set(post: Post) {
         postTitle.text = post.title
-        postAuthor.text = String(post.userId)
+        postAuthor.text = "anonymous" + String(post.userId)
     }
     
     func configPostTitle() {
@@ -41,6 +41,7 @@ class PostsCell: UITableViewCell {
     }
     
     func configPostAuthor() {
+        postAuthor.font = UIFont.boldSystemFont(ofSize: 18)
         postAuthor.translatesAutoresizingMaskIntoConstraints = false
         postAuthor.numberOfLines = 0
         postAuthor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18).isActive = true

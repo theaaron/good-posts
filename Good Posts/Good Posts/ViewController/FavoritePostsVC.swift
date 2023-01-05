@@ -22,7 +22,9 @@ class FavoritePostsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.favsCollectionView.reloadData()
+        getFavsOnReappear()
+        favsCollectionView.reloadData()
+        
     }
     
     
@@ -57,6 +59,7 @@ class FavoritePostsVC: UIViewController {
     
     
     func getFavPosts() {
+        favPosts = []
         PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
             guard let postsDict = postsDict else {
                 print("error")
@@ -70,7 +73,14 @@ class FavoritePostsVC: UIViewController {
               self.favsCollectionView.reloadData()
             }
         }
-        
+        print(favPosts.count)
+    }
+    
+    func getFavsOnReappear() {
+        self.favPosts = self.allPosts.filter({Helpers.favorites.contains($0.id)})
+        DispatchQueue.main.async{
+          self.favsCollectionView.reloadData()
+        }
     }
     
     
@@ -94,13 +104,15 @@ extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource 
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let post = favPosts[indexPath.row]
         let destVC = PostVC()
         destVC.postId = post.id
         destVC.postTitle = post.title
         destVC.postBody = post.body
-        navigationController?.present(destVC, animated: true)
+        navigationController?.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(destVC, animated: true)
         
     }
 }
