@@ -15,7 +15,7 @@ class FavoritesCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLabel()
-        backgroundColor = .systemGray3
+        backgroundColor = .systemGray5
     }
     
     required init?(coder: NSCoder) {

@@ -13,7 +13,7 @@ struct PostsNetworkingManager {
     private init() {}
     
     let postsURL = "https://dummyjson.com/posts?limit=150"
-    let postsByUserURL = "https://dummyjson.com/posts/user/"
+    let postsByUserURL = "https://dummyjson.com/users?limit=100"
     
     
     func getAllPosts(completed: @escaping (PostsDict?, String?) -> Void)  {

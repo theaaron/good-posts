@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post: Codable, Hashable {
+struct Post: Codable {
     let id: Int
     let title: String
     let body: String
@@ -16,7 +16,3 @@ struct Post: Codable, Hashable {
     let reactions: Int
 }
 
-struct FavoritePost {
-    let post: Post
-    var isFavorite = false
-}

@@ -8,7 +8,6 @@
 import UIKit
 
 class FavoritePostsVC: UIViewController {
-
     var allPosts: [Post] = []
     var favPosts: [Post] = []
     
@@ -59,13 +58,12 @@ class FavoritePostsVC: UIViewController {
     
     
     func getFavPosts() {
-        favPosts = []
         PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
             guard let postsDict = postsDict else {
                 print("error")
                 return
             }
-            self.allPosts.append(contentsOf: postsDict.posts)
+            self.allPosts = postsDict.posts
             
             self.favPosts = self.allPosts.filter({Helpers.favorites.contains($0.id)})
             
@@ -73,7 +71,6 @@ class FavoritePostsVC: UIViewController {
               self.favsCollectionView.reloadData()
             }
         }
-        print(favPosts.count)
     }
     
     func getFavsOnReappear() {
