@@ -8,7 +8,6 @@
 import UIKit
 
 class PostsCell: UITableViewCell {
-    
     var postTitle = UILabel()
     var postAuthor = UILabel()
     
@@ -27,8 +26,19 @@ class PostsCell: UITableViewCell {
     }
     
     func set(post: Post) {
+        PostsNetworkingManager.shared.getUserById(userId: String(post.userId)) { user, errorMessage in
+            guard let user = user else {
+                print(errorMessage ?? "error")
+                return
+            }
+            DispatchQueue.main.async {
+                self.postAuthor.text = user.username
+            }
+            
+        }
+        
+        
         postTitle.text = post.title
-        postAuthor.text = "anonymous" + String(post.userId)
     }
     
     func configPostTitle() {

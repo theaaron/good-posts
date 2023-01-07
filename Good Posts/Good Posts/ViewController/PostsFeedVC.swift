@@ -10,6 +10,7 @@ import UIKit
 class PostsFeedVC: UIViewController {
     
     // saving favorites to UserDefaults.
+    var users: [User] = []
     var favsArray: [Int] = []
     let defaults = UserDefaults.standard
     

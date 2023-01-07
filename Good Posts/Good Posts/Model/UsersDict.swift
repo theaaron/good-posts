@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct UsersDict {
+struct UsersDict: Codable {
     let users: [User]
 }
