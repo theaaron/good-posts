@@ -8,6 +8,7 @@
 import UIKit
 
 class PostVC: UIViewController {
+
     var postAuthor: Int = 0
     var postTitle: String = ""
     var postBody: String = ""
@@ -25,17 +26,17 @@ class PostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configPostTitle()
-        configPostAuthor()
         configPostBody()
         configFavsButton()
+        configPostAuthor()
         view.backgroundColor = .systemGray6
         
         // Do any additional setup after loading the view.
     }
     
+    // Checks favorites to see if post favorite status has changed.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("view will appear")
         configFavsOnReappear()
     }
     
@@ -52,10 +53,6 @@ class PostVC: UIViewController {
         postTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15.0).isActive = true
     }
     
-    func configPostAuthor() {
-        view.addSubview(postAuthorLabel)
-    }
-    
     func configPostBody() {
         view.addSubview(postBodyLabel)
         postBodyLabel.text = postBody
@@ -64,7 +61,6 @@ class PostVC: UIViewController {
         postBodyLabel.topAnchor.constraint(equalTo: postTitleLabel.bottomAnchor, constant: 30.0).isActive = true
         postBodyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15.0).isActive = true
         postBodyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15.0).isActive = true
-        
         
     }
     
@@ -78,6 +74,28 @@ class PostVC: UIViewController {
         favButton.translatesAutoresizingMaskIntoConstraints = false
         favButton.topAnchor.constraint(equalTo: postBodyLabel.bottomAnchor, constant: 20).isActive = true
         favButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        favButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    func configPostAuthor() {
+        view.addSubview(postAuthorLabel)
+        postAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
+        postAuthorLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        postAuthorLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        postAuthorLabel.topAnchor.constraint(equalTo: postBodyLabel.bottomAnchor, constant: 22).isActive = true
+        PostsNetworkingManager.shared.getUserById(userId: String(postAuthor)) { user, errorMessage in
+            guard let user = user else {
+                print(errorMessage ?? "error")
+                return
+            }
+            DispatchQueue.main.async {
+                self.postAuthorLabel.text = "-\(user.username)"
+            }
+            
+        }
+        
+        
+        
     }
     
     func configFavsOnReappear() {

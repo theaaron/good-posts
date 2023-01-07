@@ -16,7 +16,7 @@ struct PostsNetworkingManager {
     let allUsersURL = "https://dummyjson.com/users?limit=100"
     let userURL = "https://dummyjson.com/users/"
     
-    
+    // Calls dummyJSON api, creates a PostsDict object which holds an array of Post objects.
     func getAllPosts(completed: @escaping (PostsDict?, String?) -> Void)  {
       //create url
         guard let url = URL(string: postsURL) else {

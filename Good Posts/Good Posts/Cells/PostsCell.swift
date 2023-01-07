@@ -36,13 +36,11 @@ class PostsCell: UITableViewCell {
             }
             
         }
-        
-        
         postTitle.text = post.title
     }
     
     func configPostTitle() {
-        
+
         postTitle.translatesAutoresizingMaskIntoConstraints = false
         postTitle.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         postTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18).isActive = true
