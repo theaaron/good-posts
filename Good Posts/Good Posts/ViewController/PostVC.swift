@@ -30,8 +30,6 @@ class PostVC: UIViewController {
         configFavsButton()
         configPostAuthor()
         view.backgroundColor = .systemGray6
-        
-        // Do any additional setup after loading the view.
     }
     
     // Checks favorites to see if post favorite status has changed.
@@ -91,13 +89,11 @@ class PostVC: UIViewController {
             DispatchQueue.main.async {
                 self.postAuthorLabel.text = "-\(user.username)"
             }
-            
         }
-        
-        
-        
     }
     
+    
+    // Checks favorites array to verify that the favorite status of the post has not changed.
     func configFavsOnReappear() {
         if Helpers.favorites.contains(postId) {
             favButton.fillHeart()
@@ -106,6 +102,7 @@ class PostVC: UIViewController {
         }
     }
     
+    // Adds post to favorites, or removes from favorites if already fav'd.
     @objc func favButtonClicked() {
         
         if favButton.currentImage == favButton.unfilledHeartSymbol {

@@ -18,29 +18,26 @@ class FavoritePostsVC: UIViewController {
         getFavPosts()
         setupCollectionView()
     }
-    
+    //reloads the favorites collectionview when returning from another view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getFavsOnReappear()
         favsCollectionView.reloadData()
-        
     }
-    
-    
+    //sets delegates, registers cells, sets background color.
     func setupCollectionView() {
         favsCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: makeTwoColumnFlowLayout())
         setupCollectionViewDelegates()
         view.addSubview(favsCollectionView)
         favsCollectionView.backgroundColor = .systemGray6
         favsCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: FavoritesCell.reuseID)
-        
     }
     
     func setupCollectionViewDelegates() {
         favsCollectionView.delegate = self
         favsCollectionView.dataSource = self
     }
-    
+    // sets spacing for two column flow layout.
     func makeTwoColumnFlowLayout() -> UICollectionViewFlowLayout {
         let width = view.bounds.width
         let padding: CGFloat = 20
@@ -56,15 +53,15 @@ class FavoritePostsVC: UIViewController {
         return flowLayout
     }
     
-    
+    //network call to get all posts, then filters by postID of ids in Helpers.favorites
     func getFavPosts() {
         PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
             guard let postsDict = postsDict else {
                 print("error")
                 return
             }
-            self.allPosts = postsDict.posts
             
+            self.allPosts = postsDict.posts
             self.favPosts = self.allPosts.filter({Helpers.favorites.contains($0.id)})
             
             DispatchQueue.main.async{
@@ -72,7 +69,7 @@ class FavoritePostsVC: UIViewController {
             }
         }
     }
-    
+    // filters allPosts to contain only those with a postID in Helpers.favorites. Used for viewWillAppear
     func getFavsOnReappear() {
         self.favPosts = self.allPosts.filter({Helpers.favorites.contains($0.id)})
         DispatchQueue.main.async{
@@ -81,14 +78,9 @@ class FavoritePostsVC: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
 
 }
-
+//CollectionView setup.
 extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return favPosts.count
@@ -108,6 +100,7 @@ extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource 
         destVC.postId = post.id
         destVC.postTitle = post.title
         destVC.postBody = post.body
+        destVC.postAuthor = post.userId
         navigationController?.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(destVC, animated: true)
         

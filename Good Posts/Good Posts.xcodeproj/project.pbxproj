@@ -76,19 +76,43 @@
 		9332E3752956538D00DDA7F9 /* Good Posts */ = {
 			isa = PBXGroup;
 			children = (
-				936E55442962986C00EE166E /* Cells */,
-				936E5543295FF41600EE166E /* Model */,
 				936E5541295FF3C800EE166E /* ViewController */,
+				936E5543295FF41600EE166E /* Model */,
+				9348FE09296B88DC00853B51 /* Networking */,
+				9348FE08296B886E00853B51 /* Custom Views */,
+				9348FE0A296B891200853B51 /* Utilities */,
 				9332E3762956538D00DDA7F9 /* AppDelegate.swift */,
-				936E554B296549B000EE166E /* Helpers.swift */,
 				9332E3782956538D00DDA7F9 /* SceneDelegate.swift */,
 				9332E37F2956538E00DDA7F9 /* Assets.xcassets */,
 				9332E3812956538E00DDA7F9 /* LaunchScreen.storyboard */,
 				9332E3842956538E00DDA7F9 /* Info.plist */,
-				936E553D295EAEE700EE166E /* PostsNetworkingManager.swift */,
-				936E554729637C8800EE166E /* FavoriteButton.swift */,
 			);
 			path = "Good Posts";
+			sourceTree = "<group>";
+		};
+		9348FE08296B886E00853B51 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				936E55442962986C00EE166E /* Cells */,
+				936E554729637C8800EE166E /* FavoriteButton.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		9348FE09296B88DC00853B51 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				936E553D295EAEE700EE166E /* PostsNetworkingManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9348FE0A296B891200853B51 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				936E554B296549B000EE166E /* Helpers.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		936E5541295FF3C800EE166E /* ViewController */ = {
@@ -106,8 +130,8 @@
 			children = (
 				936E553F295F5FC800EE166E /* PostsDict.swift */,
 				9332E390295AB14C00DDA7F9 /* Post.swift */,
-				9348FE042968D87B00853B51 /* User.swift */,
 				9348FE062968D90E00853B51 /* UsersDict.swift */,
+				9348FE042968D87B00853B51 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -14,14 +14,8 @@ class PostsFeedVC: UIViewController {
     var favsArray: [Int] = []
     let defaults = UserDefaults.standard
     
-    // a string set as a variable for cell identifier.
-    struct Cells {
-        static let postsCell = "PostsCell"
-    }
-    
-    
     let postsTableView = UITableView()
-    //dummy data for posts.
+
     var posts: [Post] = []
 
     override func viewDidLoad() {
@@ -36,19 +30,17 @@ class PostsFeedVC: UIViewController {
         
         setPostsTableViewDelegates()
         postsTableView.rowHeight = 130
-        postsTableView.register(PostsCell.self, forCellReuseIdentifier: Cells.postsCell)
-        //set constraints
+        postsTableView.register(PostsCell.self, forCellReuseIdentifier: PostsCell.reuseId)
         
+        //set constraints
         postsTableView.translatesAutoresizingMaskIntoConstraints = false
         postsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         postsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         postsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         postsTableView.backgroundColor = .systemGray6
-        
-        
     }
-    
+    //network call to get all posts.
     func getAllPosts() {
         PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
             guard let postsDict = postsDict else {
@@ -84,7 +76,7 @@ extension PostsFeedVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = postsTableView.dequeueReusableCell(withIdentifier: Cells.postsCell) as! PostsCell
+        let cell = postsTableView.dequeueReusableCell(withIdentifier: PostsCell.reuseId) as! PostsCell
         let post = posts[indexPath.row]
         cell.set(post: post)
 

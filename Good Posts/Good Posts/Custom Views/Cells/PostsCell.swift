@@ -10,6 +10,7 @@ import UIKit
 class PostsCell: UITableViewCell {
     var postTitle = UILabel()
     var postAuthor = UILabel()
+    static let reuseId = "PostsCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
