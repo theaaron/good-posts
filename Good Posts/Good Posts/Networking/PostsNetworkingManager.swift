@@ -26,7 +26,7 @@ struct PostsNetworkingManager {
         //create task
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let _ = error {
-                completed(nil, "Unable to retrieve posts.")
+                completed(nil, "Error: \(String(describing: error))")
                 return
             }
 
@@ -46,7 +46,7 @@ struct PostsNetworkingManager {
                 let postsDict: PostsDict = try decoder.decode(PostsDict.self, from: data)
                 completed(postsDict, nil)
             } catch {
-                completed(nil, "it didn't work")
+                completed(nil, "Unable to decode JSON")
             }
         }
         //start the task
@@ -64,7 +64,7 @@ struct PostsNetworkingManager {
         //create task
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let _ = error {
-                completed(nil, "Recieved an error.")
+                completed(nil, "Error: \(String(describing: error))")
                 return
             }
 
@@ -84,7 +84,7 @@ struct PostsNetworkingManager {
                 let user: User = try decoder.decode(User.self, from: data)
                 completed(user, nil)
             } catch {
-                completed(nil, "it didn't work")
+                completed(nil, "Unable to decode JSON.")
             }
         }
         //start the task

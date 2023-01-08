@@ -57,7 +57,7 @@ class FavoritePostsVC: UIViewController {
     func getFavPosts() {
         PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
             guard let postsDict = postsDict else {
-                print("error")
+                print(errorMessage ?? "Error")
                 return
             }
             
