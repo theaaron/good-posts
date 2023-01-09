@@ -9,10 +9,9 @@ import UIKit
 
 class PostsFeedVC: UIViewController {
     
-    // saving favorites to UserDefaults.
     var users: [User] = []
-    var favsArray: [Int] = []
-    let defaults = UserDefaults.standard
+    var favsArray: [Post] = UserDefaultManager.getFavorites()
+    
     
     let postsTableView = UITableView()
 
@@ -61,11 +60,6 @@ class PostsFeedVC: UIViewController {
         postsTableView.dataSource = self
     }
     
-//    func saveFavorites() {
-//        favsArray.append()
-//        defaults.set(favsArray, forKey: "Favs")
-//    }
-    
 
 }
 
@@ -87,12 +81,14 @@ extension PostsFeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = posts[indexPath.row]
         let destVC = PostVC()
+        destVC.favsArray = UserDefaultManager.getFavorites()
         destVC.postTitle = post.title
         destVC.postAuthor = post.userId
         destVC.postBody = post.body
         destVC.posts = posts
         destVC.postId = post.id
         destVC.favsArray = favsArray
+        destVC.post = post
 
         navigationController?.pushViewController(destVC, animated: true)
     }

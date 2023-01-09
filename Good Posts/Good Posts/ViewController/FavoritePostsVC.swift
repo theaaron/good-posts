@@ -9,13 +9,12 @@ import UIKit
 
 class FavoritePostsVC: UIViewController {
     var allPosts: [Post] = []
-    var favPosts: [Post] = []
+    var favPosts: [Post] = UserDefaultManager.getFavorites()
     
     var favsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFavPosts()
         setupCollectionView()
     }
     //reloads the favorites collectionview when returning from another view
@@ -53,25 +52,9 @@ class FavoritePostsVC: UIViewController {
         return flowLayout
     }
     
-    //network call to get all posts, then filters by postID of ids in Helpers.favorites
-    func getFavPosts() {
-        PostsNetworkingManager.shared.getAllPosts { postsDict, errorMessage in
-            guard let postsDict = postsDict else {
-                print(errorMessage ?? "Error")
-                return
-            }
-            
-            self.allPosts = postsDict.posts
-            self.favPosts = self.allPosts.filter({Helpers.favorites.contains($0.id)})
-            
-            DispatchQueue.main.async{
-              self.favsCollectionView.reloadData()
-            }
-        }
-    }
     // filters allPosts to contain only those with a postID in Helpers.favorites. Used for viewWillAppear
     func getFavsOnReappear() {
-        self.favPosts = self.allPosts.filter({Helpers.favorites.contains($0.id)})
+        favPosts = UserDefaultManager.getFavorites()
         DispatchQueue.main.async{
           self.favsCollectionView.reloadData()
         }
@@ -101,6 +84,7 @@ extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource 
         destVC.postTitle = post.title
         destVC.postBody = post.body
         destVC.postAuthor = post.userId
+        destVC.post = post
         navigationController?.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(destVC, animated: true)
         

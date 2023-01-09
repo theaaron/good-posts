@@ -8,7 +8,7 @@
 import UIKit
 
 class PostVC: UIViewController {
-
+    var post: Post!
     var postAuthor: Int = 0
     var postTitle: String = ""
     var postBody: String = ""
@@ -20,8 +20,7 @@ class PostVC: UIViewController {
     let postAuthorLabel = UILabel()
     let postBodyLabel = UILabel()
     
-    var favsArray: [Int] = []
-    let defaults = UserDefaults.standard
+    var favsArray: [Post] = UserDefaultManager.getFavorites()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +63,12 @@ class PostVC: UIViewController {
     
     func configFavsButton() {
         view.addSubview(favButton)
-        if Helpers.favorites.contains(postId) {
+        if favsArray.contains(where: { postInArr in
+            postInArr.id == post.id
+        }) {
             favButton.fillHeart()
-            print("fav'd")
         }
+        
         favButton.addTarget(self, action: #selector(favButtonClicked), for: .touchUpInside)
         favButton.translatesAutoresizingMaskIntoConstraints = false
         favButton.topAnchor.constraint(equalTo: postBodyLabel.bottomAnchor, constant: 20).isActive = true
@@ -95,7 +96,8 @@ class PostVC: UIViewController {
     
     // Checks favorites array to verify that the favorite status of the post has not changed.
     func configFavsOnReappear() {
-        if Helpers.favorites.contains(postId) {
+        favsArray = UserDefaultManager.getFavorites()
+        if favsArray.contains(where: { $0.id == post.id }) {
             favButton.fillHeart()
         } else {
             favButton.unfillHeart()
@@ -107,14 +109,10 @@ class PostVC: UIViewController {
         
         if favButton.currentImage == favButton.unfilledHeartSymbol {
             favButton.fillHeart()
-            Helpers.favorites.append(postId)
-            print(Helpers.favorites)
-            
+            UserDefaultManager.updateFavorites(favorite: post, actionType: .add)
         } else {
             favButton.unfillHeart()
-            let index = Helpers.favorites.firstIndex(of: postId)
-            Helpers.favorites.remove(at: index!)
-            print(Helpers.favorites)
+            UserDefaultManager.updateFavorites(favorite: post, actionType: .remove)
         }
     }
 
