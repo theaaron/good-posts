@@ -25,16 +25,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createPostsFeedNC() -> UINavigationController {
         let postsfeedVC = PostsFeedVC()
-        postsfeedVC.title = "Newsfeed"
-        postsfeedVC.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+        postsfeedVC.title = "Good Posts"
+        postsfeedVC.tabBarItem = UITabBarItem(title: "Posts" , image: UIImage(systemName: "newspaper.fill"),tag: 0)
         
         return UINavigationController(rootViewController: postsfeedVC)
     }
     
     func createFavsFeedNC() -> UINavigationController {
         let favPostsVC = FavoritePostsVC()
-        favPostsVC.title = "Bookmarks"
-        favPostsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        favPostsVC.title = "Favorites"
+        favPostsVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 1)
         
         return UINavigationController(rootViewController: favPostsVC)
     }
