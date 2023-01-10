@@ -85,7 +85,6 @@ extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource 
         destVC.postBody = post.body
         destVC.postAuthor = post.userId
         destVC.post = post
-        navigationController?.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(destVC, animated: true)
         
     }
