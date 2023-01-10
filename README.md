@@ -17,9 +17,11 @@ PostVC is a view that is displayed by selecting a post in PostsFeedVC or Favorit
 
 There are 4 models in this application. UsersDict, User, PostsDict, and Post. The UserDict and PostDict models are both used to take in the JSON object from the api, while the User and Post models provide the properties.
 
-The NetworkingManager and UserDefaultsManager were created to get posts and users from the API and from UserDefaults. NetworkManager can make two different network calls. The first network call provides almost all post data, but does not provide a username. The second network call gets a user by ID. The method takes in a user ID, then appends the ID to the API URL to get the correct user. 
+The NetworkingManager and UserDefaultsManager were created to get posts and users from the API and from UserDefaults. NetworkManager can make two different network calls. The first network call provides almost all post data, but does not provide a username. The second network call gets a user by ID. The method takes in a user ID, then appends the ID to the API URL to get the correct user.
+![A code snippet of the named methods in PostNeworkingManager.](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/PostsNeworkingManagerCodeSnippet.png?raw=true)
 
 UserDefaultsManager is made for handling favorites. When a user clicks the favorite button, the post is encoded into JSON and stored in UserDefaults as a Data object. When users view their favorites, the Data object is decoded from UserDefaults and displayed in a UICollectionView in FavoritePostsVC.
+![A code snippet of the named methods in UserDefaultsManager.](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/UserDefaultsManagerCodeSnippet.png?raw=true)
 
 ## UIKit Components
 This app makes use of UIKit. The following UIKit components were used.
