@@ -9,10 +9,17 @@ Good Posts was created within the MVC framework. There are three View Controller
 FavoritePostsVC and PostsFeed VC are the two views that are created by the UITabBarController. 
 ![A screenshot of a code snippet that shows the code for creating the tabbar.](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/createTabBar.png?raw=true)
 
+PostsFeedVC contains a UITableView. Each cell is populated with with the Post Title and Post Author. The posts are fetched from dummyJSON. NetworkingManager handles the request, and converts the raw data into a PostsDict object. The PostDict object contains one property: posts, of which the type is an array of Posts.
+
+FavoritePostsVC contains a UICollectionView. Each cell is populated with a Post Title. Each post is fetched from UserDefaults. A UserDefaultsManager.swift file has been created for handling retrieval as well as adding and removing favorites. 
 
 PostVC is a view that is displayed by selecting a post in PostsFeedVC or FavoritePostsVC. The View Controller then sends relevant data to PostVC to display the selected post. 
 
 There are 4 models in this application. UsersDict, User, PostsDict, and Post. The UserDict and PostDict models are both used to take in the JSON object from the api, with the User and Post models provide the properties.
+
+The NetworkingManager and UserDefaultsManager were created to get posts and users from the API and from UserDefaults. NetworkManager can make two different network calls. The first network call provides almost all post data, but does not provide a username. The getUsers network call gets all users and more properties that can be used at a later time.
+
+UserDefaultsManager is made for handling favorites. When a user clicks the favorite button, the post is encoded into JSON and stored in UserDefaults as a Data object. When users view their favorites, the Data object is decoded from UserDefaults and displayed in a UICollectionView in FavoritePostsVC.
 
 ## UIKit Components
 This app makes use of UIKit. The following UIKit components were used.
