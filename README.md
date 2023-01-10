@@ -13,7 +13,8 @@ PostsFeedVC contains a UITableView. Each cell is populated with with the Post Ti
 
 FavoritePostsVC contains a UICollectionView. Each cell is populated with a Post Title. Each post is fetched from UserDefaults. A UserDefaultsManager.swift file has been created for handling retrieval as well as adding and removing favorites. 
 
-PostVC is a view that is displayed by selecting a post in PostsFeedVC or FavoritePostsVC. The View Controller then sends relevant data to PostVC to display the selected post. 
+PostVC is a view that is displayed by selecting a post in PostsFeedVC or FavoritePostsVC. The View Controller then sends relevant data to PostVC to display the selected post.
+![Code snippet of didSelectItemAt](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/didSelectItemAt.png?raw=true) 
 
 There are 4 models in this application. UsersDict, User, PostsDict, and Post. The UserDict and PostDict models are both used to take in the JSON object from the api, while the User and Post models provide the properties.
 
