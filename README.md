@@ -15,9 +15,9 @@ FavoritePostsVC contains a UICollectionView. Each cell is populated with a Post 
 
 PostVC is a view that is displayed by selecting a post in PostsFeedVC or FavoritePostsVC. The View Controller then sends relevant data to PostVC to display the selected post. 
 
-There are 4 models in this application. UsersDict, User, PostsDict, and Post. The UserDict and PostDict models are both used to take in the JSON object from the api, with the User and Post models provide the properties.
+There are 4 models in this application. UsersDict, User, PostsDict, and Post. The UserDict and PostDict models are both used to take in the JSON object from the api, while the User and Post models provide the properties.
 
-The NetworkingManager and UserDefaultsManager were created to get posts and users from the API and from UserDefaults. NetworkManager can make two different network calls. The first network call provides almost all post data, but does not provide a username. The getUsers network call gets all users and more properties that can be used at a later time.
+The NetworkingManager and UserDefaultsManager were created to get posts and users from the API and from UserDefaults. NetworkManager can make two different network calls. The first network call provides almost all post data, but does not provide a username. The second network call gets a user by ID. The method takes in a user ID, then appends the ID to the API URL to get the correct user. 
 
 UserDefaultsManager is made for handling favorites. When a user clicks the favorite button, the post is encoded into JSON and stored in UserDefaults as a Data object. When users view their favorites, the Data object is decoded from UserDefaults and displayed in a UICollectionView in FavoritePostsVC.
 
