@@ -31,7 +31,7 @@ class FavoritePostsVC: UIViewController {
         favsCollectionView.backgroundColor = .systemGray6
         favsCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: FavoritesCell.reuseID)
     }
-    
+    //set delegates
     func setupCollectionViewDelegates() {
         favsCollectionView.delegate = self
         favsCollectionView.dataSource = self
@@ -76,7 +76,7 @@ extension FavoritePostsVC: UICollectionViewDelegate, UICollectionViewDataSource 
         
         return cell
     }
-    
+    //sets variables to pass to PostVC, then launches PostVC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let post = favPosts[indexPath.row]
         let destVC = PostVC()
