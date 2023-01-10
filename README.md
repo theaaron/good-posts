@@ -43,6 +43,8 @@ Good Posts has two screens to view Posts: The Posts tab, and the Favorites tab. 
 
 The Favorites tab contains a UICollectionView of posts that have been added to favrorites. Each cell contains the post title. Favorites implements a UICollectionView so that there will be no confusion between the Favorites tab and Posts tab.
 
+After selecting a post, you are taken to the third screen, PostVC. PostVC displays the title of the post, the body and the author. There is a Heart SF Symbol that users can click to fill the icon and add the posts to favorites. 
+
 ## Features
 Good posts features data persistence. To add a post to your favorites, simply click the heart button. The favorites tab will be updated whenever you navigate back to the tab, even if you have closed the app.
 ![A gif of favoriting and unfavoriting a post.](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/persistence.gif?raw=true)
