@@ -8,6 +8,7 @@ Good Posts was created within the MVC framework. There are three View Controller
 
 FavoritePostsVC and PostsFeed VC are the two views that are created by the UITabBarController. 
 
+
 PostVC is a view that is displayed by selecting a post in PostsFeedVC or FavoritePostsVC. The View Controller then sends relevant data to PostVC to display the selected post. 
 
 There are 4 models in this application. UsersDict, User, PostsDict, and Post. The UserDict and PostDict models are both used to take in the JSON object from the api, with the User and Post models provide the properties.
@@ -30,7 +31,9 @@ Good Posts has two screens to view Posts: The Posts tab, and the Favorites tab. 
 The Favorites tab contains a UICollectionView of posts that have been added to favrorites. Each cell contains the post title. Favorites implements a UICollectionView so that there will be no confusion between the Favorites tab and Posts tab.
 
 ## Features
-Good posts features data persistence. To add a post to your favorites, simply click the heart button. The favorites tab will be updated whenever you navigate back to the tab.
+Good posts features data persistence. To add a post to your favorites, simply click the heart button. The favorites tab will be updated whenever you navigate back to the tab, even if you have closed the app.
 
 Good Posts will also work in either dark mode or light mode. 
+
+
 
