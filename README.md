@@ -44,7 +44,7 @@ The Favorites tab contains a UICollectionView of posts that have been added to f
 
 ## Features
 Good posts features data persistence. To add a post to your favorites, simply click the heart button. The favorites tab will be updated whenever you navigate back to the tab, even if you have closed the app.
-![A gif of favoriting and unfavoriting a post.](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/favingPosts.gif?raw=true)
+![A gif of favoriting and unfavoriting a post.](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/persistence.gif?raw=true)
 
 Good Posts will also work in either dark mode or light mode. 
 ![A photo of Good Posts in dark mode and in light mode.](https://github.com/theaaron/good-posts/blob/main/Good%20Posts/Good%20Posts/Screenshots/lightDarkMode.png?raw=true)
