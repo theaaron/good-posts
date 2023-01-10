@@ -1,7 +1,7 @@
 # Good Posts
 ## _An app to view and save posts._
 
-Good Posts is an iOS app created to view and favorite posts from the dummyJSON API.
+Good Posts is an iOS app created to view posts and mark posts as favorites from the dummyJSON API.
 
 ## Architecture
 Good Posts was created within the MVC framework. There are three View Controllers: PostsFeedVC, FavoritePostsVC, and PostVC.
@@ -9,6 +9,8 @@ Good Posts was created within the MVC framework. There are three View Controller
 FavoritePostsVC and PostsFeed VC are the two views that are created by the UITabBarController. 
 
 PostVC is a view that is displayed by selecting a post in PostsFeedVC or FavoritePostsVC. The View Controller then sends relevant data to PostVC to display the selected post. 
+
+There are 4 models in this application. UsersDict, User, PostsDict, and Post. The UserDict and PostDict models are both used to take in the JSON object from the api, with the User and Post models provide the properties.
 
 ## UIKit Components
 This app makes use of UIKit. The following UIKit components were used.
